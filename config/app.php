@@ -182,7 +182,8 @@ return [
         */
         Collective\Html\HtmlServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
-        Laracasts\Flash\FlashServiceProvider::class,        
+        Laracasts\Flash\FlashServiceProvider::class,
+        Yajra\Oci8\Oci8ServiceProvider::class,        
 
 
     ],
