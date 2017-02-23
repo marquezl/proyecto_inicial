@@ -21,6 +21,9 @@ class PersonasController extends Controller
 	{
 		$full_name = $request->primer_nombre . $request->segundo_nombre . $request->primer_apellido . $request->segundo_apelldido;
 		$personas =  Persona::search($full_name)->OrderBy('id','asc')->paginate(5);
+		$personas->each(function($personas){
+			$personas->transporte;
+		});
 
 		return view('admin.personas.index')->with('personas',$personas);
 	}

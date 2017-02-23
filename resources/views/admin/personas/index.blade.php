@@ -61,9 +61,8 @@
 							<span class="label label-primary">{{ 'Masculino' }}</span>
 						@endif 
 					</td>
-			        <td>{{ isset($persona->transporte->nombre_transporte) ? $persona->transporte->nombre_transporte : 'Sin Transporte' }}</td>
-					<td>
-						<td><a href="{{ route('personas.edit',$persona->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" 
+			        <td>{{ $persona->transporte->nombre_transporte }}</td>
+					<td><a href="{{ route('personas.edit',$persona->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" 
 						aria-hidden="true"></span></a>
 				    </td>
 					<td>

@@ -67,16 +67,15 @@ class ArticlesController extends Controller
 		}
 		$article = new Article($request->all());
 		$article->user_id =\Auth::user()->id ;
-		dd($article);
-		// $article->category_id = $request->category_id;
-		// $article->save();
+		$article->category_id = $request->category_id;
+		$article->save();
 
 		// $article->tags()->sync($request->tags);
 
-		// $image = new Image();
-		// $image->name = $name;
-		// $image->article()->associate($article);
-		// $image->save();
+		$image = new Image();
+		$image->name = $name;
+		$image->article()->associate($article);
+		$image->save();
 		
 		Flash::success("El articulo " . $article->name . " ha sido editado con exito!");
 		return redirect()->route('admin.articles.index');

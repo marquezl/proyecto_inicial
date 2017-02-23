@@ -23,13 +23,13 @@
 
 		<div class="form-group">
 			{!! Form::label('tags','Tags') !!}
-			{!! Form::select('tags',$tags, null, ['class' => 'form-control select-tag', 'multiple', 'required']) !!}
+			{!! Form::select('tags[]',$tags, null, ['class' => 'form-control select-tag', 'multiple', 'required']) !!}
 		</div>		
 
 		<div class="form-group">
-		    {!! Form::label('Image', 'Upload:') !!}
-		    {!! Form::file('Image', null, ['class' => 'form-control']) !!}
-		</div>
+			{!! Form::label('image','Imagen') !!}
+			{!! Form::file('image') !!}
+		</div>		
 
 		<div class="form-group">
 			{!! Form::submit('Agregar articulo',  ['class' => 'btn btn-primary']) !!}
@@ -39,20 +39,22 @@
 
 @endsection
 
-<!-- @section('js')
+@section('js')
 
 	<script>
 
 	  $('.select-tag').chosen({
 	  	placeholder_text_multiple: 'Seleccione un maximo de 3 tags',
 		max_selected_options: 3,
-		search_contains: true
+		search_contains: true,
+		no_result_text: 'No se encontraron esos tags'
 	  });
 	  $('.select-category').chosen({
+	  	placeholder_text_single: 'Seleccione una categoria..'
 	  });
 
 	  $('.textarea-conten').trumbowyg();
 
 	</script>
 
-@endsection -->
+@endsection
