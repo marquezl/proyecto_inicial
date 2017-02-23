@@ -7,10 +7,13 @@
 		<!-- BUSCADOR DE PERSONAS -->
 			{!! Form::open(['route' => 'personas.index', 'method' => 'GET', 'class' => 'navbar-form pull-right' ]) !!}
 				<div class="input-group">
-{!! Form::text('identificacion', null, ['class' => 'form-control', 'placeholder' => 'Buscar persona..','area-describedby' => 'search']) !!}
-<span class="input-group-addon" id="search" ><span class="glyphicon glyphicon-search" id="search" aria-hidden="true"></span></span>
-				</div>			
+{!! Form::text('primer_nombre', null, ['class' => 'form-control', 'placeholder' => 'Buscar persona..','area-describedby' => 'search']) !!}
+					<span class="input-group-addon" id='search'><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+				</div>
+
 			{!! Form::close()!!}
+
+
 		<!-- FIN DEL BUSCADOR DE PERSONAS -->
 	
 	<hr>	
@@ -35,7 +38,15 @@
 				<tr>
 					<td>{{ $persona->id    }}</td>
 					<td>{{ $persona->identificacion  }}</td>
-					<td>{{ $persona->tipo_transportista  }}</td>
+ 					<td>
+	 					@if ($persona->tipo_transportista == "ADMINISTRATIVO")
+							<span class="btn btn-default" role="group">{{ 'Administrativo' }} </span>
+					    @elseif ($persona->tipo_transportista == "AFILIADO")
+							<span class="btn btn-default" role="group">{{ 'Afiliado' }}</span>
+						@else
+							<span class="btn btn-default" role="group">{{ 'Chofer' }}</span>
+						@endif 
+					</td>
 					<td>{{ $persona->primer_nombre  }}</td>
 					<td>{{ $persona->segundo_nombre  }}</td>
 					<td>{{ $persona->primer_apellido  }}</td>
@@ -51,22 +62,14 @@
 						@endif 
 					</td>
 			        <td>{{ isset($persona->transporte->nombre_transporte) ? $persona->transporte->nombre_transporte : 'Sin Transporte' }}</td>
-
 					<td>
-
-
-<td><a href="{{ route('personas.edit',$persona->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" 
-aria-hidden="true"></span></a>
-
-    </td>
+						<td><a href="{{ route('personas.edit',$persona->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" 
+						aria-hidden="true"></span></a>
+				    </td>
 					<td>
-
-<a href="{{ route('admin.personas.destroy',$persona->id) }}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" 
-class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a> 
-
-
-
-    </td>
+						<a href="{{ route('admin.personas.destroy',$persona->id) }}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" 
+						class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a> 
+				    </td>
 				</tr>
 				
 			@endforeach

@@ -33,7 +33,6 @@ class PersonaRequest extends FormRequest
             'lugar_nacimiento'=> 'max:120|required:personas',
             'fecha_nacimiento'=> 'max:120|required:personas',
             'direccion'=> 'max:120|required:personas',
-            'sexo'=> 'max:1|required:personas',
             'transporte_id'=> 'max:100|required:personas'
         ];
 

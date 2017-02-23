@@ -23,5 +23,10 @@ class Persona extends Model
         return $this->hasOne('App\Transporte',  'id', 'transporte_id');
     }
 
+    public function scopeSearch($query, $primer_nombre)
+    {
+        return $query->where('primer_nombre','like',"%$primer_nombre%");
+        // return $this->hasOne('App\Transporte',  'id', 'transporte_id');
+    }
 
 }

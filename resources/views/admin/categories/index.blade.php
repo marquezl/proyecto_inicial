@@ -1,7 +1,7 @@
 @extends('admin.template.main')
 @section('title','Lista de Categorias')
 @section('content')
-	<a href="{{ route("admin.categories.create") }}" class="btn btn-info" >"Registrar nueva Categoria"</a><hr>
+	<a href="{{ route("categories.create") }}" class="btn btn-info" >"Registrar nueva Categoria"</a><hr>
 	<table class="table table-striped">
 		<thead>
 			<th>ID</th>
@@ -13,7 +13,7 @@
 				<tr>
 					<td>{{ $Category->id    }}</td>
 					<td>{{ $Category->name  }}</td>
-					<td><a href="{{ route('admin.categories.edit',$Category->id)}}" class="btn btn-warning"><span 
+					<td><a href="{{ route('categories.edit',$Category->id)}}" class="btn btn-warning"><span 
 					 class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
 
 					<a href="{{ route('admin.categories.destroy',$Category->id)}}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" 

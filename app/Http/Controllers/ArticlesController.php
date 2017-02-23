@@ -40,8 +40,8 @@ class ArticlesController extends Controller
 	*/
 	public function create()
 	{
-		$categories = Category::orderBy('name','ASC')->lists('name','id');
-		$tags = Tag::orderBy('name','ASC')->lists('name','id');
+		$categories = Category::orderBy('name','ASC')->pluck('name','id');
+		$tags = Tag::orderBy('name','ASC')->pluck('name','id');
 		return view('admin.articles.create')
 			->with('categories',$categories)
 			->with('tags',$tags);
@@ -92,10 +92,10 @@ class ArticlesController extends Controller
 	{
 		$article 	= Article::find($id);
 		$article->category;
-		$categories = Category::orderBy('name','DESC')->lists('name','id');
-		$tags 		= Tag::orderBy('name','DESC')->lists('name','id');
+		$categories = Category::orderBy('name','DESC')->pluck('name','id');
+		$tags 		= Tag::orderBy('name','DESC')->pluck('name','id');
 
-		$my_tags = $article->tags->lists('id')->ToArray();
+		$my_tags = $article->tags->pluck('id')->ToArray();
 		return view('admin.articles.edit')
 			->with('categories',$categories)
 			->with('article',$article)

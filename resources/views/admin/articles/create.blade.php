@@ -4,7 +4,7 @@
 
 @section('content')	
 
-	{!! Form::open(['route' => 'admin.articles.store', 'method' => 'POST', 'files' => true]) !!}
+	{!! Form::open(['route' => 'articles.store', 'method' => 'POST', 'files' => true]) !!}
 
 		<div class="form-group">
 			{!! Form::label('title','Titulo') !!}

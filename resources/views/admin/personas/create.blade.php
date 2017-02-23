@@ -9,7 +9,7 @@
 
 		<div class="form-group">
 			{!! Form::label('tipo_transportista','Tipo de Personal') !!}
-			{!! Form::select('tipo_transportista', ['Administrativo'=> 'Administrativo','Afiliado'=> 'Afiliado','Chofer'=>'Chofer'],null,['class' => 'form-control']) !!}
+			{!! Form::select('tipo_transportista', ['ADMINISTRATIVO'=> 'Administrativo','AFILIADO'=> 'Afiliado','CHOFER'=>'Chofer'],null,['class' => 'form-control']) !!}
 		</div>
 
 		<div class="form-group">
@@ -54,17 +54,17 @@
  
 		<div class="form-group">
 			{!! Form::label('sexo','Sexo') !!}
-			{!! Form::select('type', [' '=> 'Seleccione un tipo...','F'=>'Femenino','M'=>'Masculino'],null,['class' => 'form-control']) !!}
+			{!! Form::select('sexo', [' '=> 'Seleccione un tipo...','F'=>'Femenino','M'=>'Masculino'],null,['class' => 'form-control']) !!}
 		</div>
 
 		<div class="form-group">
 			{!! Form::label('transporte_id','Transporte') !!}
-			{!! Form::select('transporte_id', [isset($persona->transporte->nombre_transporte) ? $persona->transporte->nombre_transporte : 'Sin Transporte'],null,['class' => 'form-control']) !!}
+{!! Form::select('transporte_id',$transportes, null, ['class' => 'form-control', 'placeholder' => 'Seleccione una opcion.', 'required']) !!}
 		</div>
 
  
 		<div class="form-group">
-			{!! Form::submit('Registrar',  ['class' => 'btn btn-primary']) !!}
+			{{Form::button('Guardar', array('class'=>'btn btn-primary', 'type'=>'submit', 'target'=>'_blank'))}}
 		</div>		
 
 	{!! Form::close() !!}

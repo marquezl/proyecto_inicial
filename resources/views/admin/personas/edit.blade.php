@@ -9,7 +9,7 @@
 
 		<div class="form-group">
 			{!! Form::label('tipo_transportista','Tipo de Personal') !!}
-			{!! Form::select('tipo_transportista', ['Administrativo'=> 'Administrativo','Afiliado'=> 'Afiliado','Chofer'=>'Chofer'],$persona->tipo_transportista,['class' => 'form-control']) !!}
+			{!! Form::select('tipo_transportista', ['ADMINISTRATIVO'=> 'Administrativo','AFILIADO'=> 'Afiliado','CHOFER'=>'Chofer'],$persona->tipo_transportista,['class' => 'form-control']) !!}
 		</div>
 
 		<div class="form-group">
@@ -59,7 +59,7 @@
 
 		<div class="form-group">
 			{!! Form::label('transporte_id','Transporte') !!}
-			{!! Form::select('transporte_id', [isset($persona->transporte->nombre_transporte) ? $persona->transporte->nombre_transporte : 'Sin Transporte'],$persona->transporte_id,['class' => 'form-control']) !!}
+{!! Form::select('transporte_id',$transportes, $persona->direccion, ['class' => 'form-control', 'placeholder' => 'Seleccione una opcion.', 'required']) !!}
 		</div>		
 
 		<div class="form-group">

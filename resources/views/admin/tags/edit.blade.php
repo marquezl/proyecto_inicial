@@ -5,7 +5,7 @@
 
 @section('content')
 
-	{!! Form::open(['route' => ['admin.tags.update',$tag], 'method'=> 'PUT']) !!}
+	{!! Form::open(['route' => ['tags.update',$tag], 'method'=> 'PUT']) !!}
 
 		<div class="form-group">
 			{!! Form::label('name','Nombre') !!}

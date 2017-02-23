@@ -15,7 +15,7 @@ class AddPersonasTable extends Migration
     {
         Schema::create('personas', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('tipo_transportista',['afiliado','chofer','administrativo'])->default('afiliado');
+            $table->enum('tipo_transportista',['AFILIADO','CHOFER','ADMINISTRATIVO'])->default('AFILIADO');
             $table->string('identificacion');
             $table->string('primer_nombre');
             $table->string('segundo_nombre');

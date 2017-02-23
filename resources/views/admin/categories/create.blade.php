@@ -4,7 +4,7 @@
 
 @section('content')
 
-	{!! Form::open(['route' => 'admin.categories.store', 'method'=> 'POST']) !!}
+	{!! Form::open(['route' => 'categories.store', 'method'=> 'POST']) !!}
 
 		<div class="form-group">
 			{!! Form::label('name','Nombre') !!}

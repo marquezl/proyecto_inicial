@@ -44,7 +44,7 @@ class CategoriesController extends Controller
 		$category = new Category($request->all());
 		$category->save();
 		
-		Flash::success("La categoria " . $category->name . " a sido editada exito!");
+		Flash::success("La categoria " . $category->name . " a sido editada con exito!");
 		return redirect()->route('admin.categories.index');
 		
 	}

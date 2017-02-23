@@ -19,7 +19,9 @@ class PersonasController extends Controller
 	*/
 	public function index(Request $request)
 	{
-		$personas =  Persona::OrderBy('id','asc')->paginate(5);
+		$full_name = $request->primer_nombre . $request->segundo_nombre . $request->primer_apellido . $request->segundo_apelldido;
+		$personas =  Persona::search($full_name)->OrderBy('id','asc')->paginate(5);
+
 		return view('admin.personas.index')->with('personas',$personas);
 	}
     /**
@@ -29,7 +31,9 @@ class PersonasController extends Controller
 	*/
 	public function create()
 	{
-		return view('admin.personas.create');
+		$transportes = Transporte::orderBy('nombre_transporte','DESC')->pluck('nombre_transporte','id');
+		return view('admin.personas.create')
+			->with('transportes',$transportes);
 	}
 
     /**
@@ -43,7 +47,7 @@ class PersonasController extends Controller
 		$persona = new Persona($request->all());
 		$persona->save();
 		
-		// Flash::success("Se ha registrado " . $persona->primer_nombre . ' ' . $persona->primer_apellido . " de forma exitosa!");
+		Flash::success("Se ha registrado " . $persona->primer_nombre . ' ' . $persona->primer_apellido . " de forma exitosa!");
 		return redirect()->route('admin.personas.index');
 		
 	}
@@ -67,10 +71,13 @@ class PersonasController extends Controller
 	*/
 	public function edit($id)
 	{
+		$transportes = Transporte::orderBy('nombre_transporte','DESC')->pluck('nombre_transporte','id');
 		$persona = Persona::find($id);
-		return view('admin.personas.edit')->with('persona',$persona);
-		
-		Flash::error('La persona ' . $persona->primer_nombre . $persona->primer_apellido . ' a sido editada de forma exitosa!');
+		return view('admin.personas.edit')
+			->with('persona',$persona)
+			->with('transportes',$transportes);
+
+		Flash::error('La persona ' . $persona->primer_nombre . $persona->primer_apellido . ' a sido modificada de forma exitosa!');
 		return redirect()->route('admin.personas.index');
 	}
 

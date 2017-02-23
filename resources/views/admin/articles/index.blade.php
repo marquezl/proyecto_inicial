@@ -3,7 +3,7 @@
 @section('title','Listado de Articulos')
 
 @section('content')
-	<a href="{{ route("admin.articles.create") }}" class="btn btn-info" >"Registrar nuevo Articulo"</a>
+	<a href="{{ route("articles.create") }}" class="btn btn-info" >"Registrar nuevo Articulo"</a>
 	<!-- BUSCADOR DE ARTICULOS -->
 		{!! Form::open(['route' => 'admin.articles.index', 'method' => 'GET', 'class' => 'navbar-form pull-right' ]) !!}
 			<div class="input-group">
@@ -29,7 +29,7 @@
 					<td>{{ $article->category->name  }}</td>
 					<td>{{ $article->user->name  }}</td>
 					</td>
-					<td><a href="{{ route('admin.articles.edit',$article->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden
+					<td><a href="{{ route('articles.edit',$article->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden
 					="true"></span></a>
 
 <a href="{{ route('admin.articles.destroy',$article->id)}}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" 

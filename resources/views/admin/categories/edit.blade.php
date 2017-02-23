@@ -5,7 +5,7 @@
 
 @section('content')
 
-	{!! Form::open(['route' => ['admin.categories.update',$category], 'method'=> 'PUT']) !!}
+	{!! Form::open(['route' => ['categories.update',$category], 'method'=> 'PUT']) !!}
 
 		<div class="form-group">
 			{!! Form::label('name','Nombre') !!}

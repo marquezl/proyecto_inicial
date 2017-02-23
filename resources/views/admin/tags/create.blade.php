@@ -3,7 +3,7 @@
 @section('title','Agregar tag')
 
 @section('content')
-	{!! Form::open(['route' => 'admin.tags.store', 'method' => 'POST']) !!}
+	{!! Form::open(['route' => 'tags.store', 'method' => 'POST']) !!}
 
 		<div class="form-group">
 			{!! Form::label('name','Nombre') !!}
