@@ -23,13 +23,13 @@
 
 		<div class="form-group">
 			{!! Form::label('tags','Tags') !!}
-			{!! Form::select('tags[]',$tags, null, ['class' => 'form-control select-tag', 'multiple', 'required']) !!}
+			{!! Form::select('tags',$tags, null, ['class' => 'form-control select-tag', 'multiple', 'required']) !!}
 		</div>		
 
 		<div class="form-group">
-			{!! Form::label('image','Imagen') !!}
-			{!! Form::file('image') !!}
-		</div>		
+		    {!! Form::label('Image', 'Upload:') !!}
+		    {!! Form::file('Image', null, ['class' => 'form-control']) !!}
+		</div>
 
 		<div class="form-group">
 			{!! Form::submit('Agregar articulo',  ['class' => 'btn btn-primary']) !!}
@@ -39,7 +39,7 @@
 
 @endsection
 
-@section('js')
+<!-- @section('js')
 
 	<script>
 
@@ -55,4 +55,4 @@
 
 	</script>
 
-@endsection
+@endsection -->
